@@ -1,9 +1,6 @@
 package bht.salvinto.sfgdi;
 
-import bht.salvinto.sfgdi.controllers.ConstructorInjectedController;
-import bht.salvinto.sfgdi.controllers.MyController;
-import bht.salvinto.sfgdi.controllers.PropertyInjectedController;
-import bht.salvinto.sfgdi.controllers.SetterInjectedController;
+import bht.salvinto.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,8 +10,11 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
 
-		MyController myController = (MyController)ctx.getBean("myController");
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println("------ Profile: ES");
+		System.out.println(i18nController.sayHello());
 
+		MyController myController = (MyController)ctx.getBean("myController");
 		System.out.println("------ Primary");
 		System.out.println(myController.sayHello());
 
