@@ -1,5 +1,7 @@
 package bht.salvinto.sfgdi.config;
 
+import bht.salvinto.sfgdi.repositories.EnglishGreetingRepository;
+import bht.salvinto.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import bht.salvinto.sfgdi.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,13 +34,18 @@ public class GreetingServiceConfig {
 
     @Profile("EN")
     @Bean("i18nService")
-    I18nEnglishGreetingService i18nEnglishGreetingService() {
-        return new I18nEnglishGreetingService();
+    I18nEnglishGreetingService i18nEnglishGreetingService(EnglishGreetingRepository englishGreetingRepository) {
+        return new I18nEnglishGreetingService(englishGreetingRepository);
     }
 
     @Profile("ES")
     @Bean
     I18nSpanishGreetingService i18nService() {
         return new I18nSpanishGreetingService();
+    }
+
+    @Bean
+    EnglishGreetingRepositoryImpl englishGreetingRepositoryImpl() {
+        return new EnglishGreetingRepositoryImpl();
     }
 }
