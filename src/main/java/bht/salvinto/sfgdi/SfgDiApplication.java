@@ -4,11 +4,16 @@ import bht.salvinto.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan({"bht.salvinto.sfgdi", "bht.salvinto.springframework"})
 @SpringBootApplication
 public class SfgDiApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
+
+		PetController petController = (PetController) ctx.getBean("petController");
+		System.out.println(petController.whichPetIsBest());
 
 		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
 		System.out.println("------ Profile: ES");
