@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan({"bht.salvinto.sfgdi", "bht.salvinto.springframework"})
+// @ComponentScan({"bht.salvinto.sfgdi", "bht.salvinto.springframework"})
 @SpringBootApplication
 public class SfgDiApplication {
 	public static void main(String[] args) {
