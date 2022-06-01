@@ -3,15 +3,11 @@ package bht.salvinto.sfgdi.config;
 import bht.salvinto.sfgdi.repositories.EnglishGreetingRepository;
 import bht.salvinto.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import bht.salvinto.sfgdi.services.*;
-import bht.salvinto.springframework.pets.CatService;
-import bht.salvinto.springframework.pets.DogService;
 import bht.salvinto.springframework.pets.PetService;
 import bht.salvinto.springframework.pets.PetServiceFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
+@ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -32,7 +28,7 @@ public class GreetingServiceConfig {
         return petServiceFactory.getPetService("dog");
     }
 
-    @Bean
+    // @Bean
     ConstructorGreetingService constructorGreetingService() {
         return new ConstructorGreetingService();
     }
