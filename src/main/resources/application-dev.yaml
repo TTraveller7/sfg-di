@@ -1,0 +1,4 @@
+bht:
+  username: devBountyHunter
+  password: devBhtPassword
+  jdbcUrl: devBhtUrl
