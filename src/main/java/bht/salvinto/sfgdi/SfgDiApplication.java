@@ -1,5 +1,6 @@
 package bht.salvinto.sfgdi;
 
+import bht.salvinto.sfgdi.config.SfgConfig;
 import bht.salvinto.sfgdi.controllers.*;
 import bht.salvinto.sfgdi.datasource.FakeDatasource;
 import bht.salvinto.sfgdi.services.PrototypeBean;
@@ -56,5 +57,11 @@ public class SfgDiApplication {
 		System.out.println(fakeDatasource.getUsername());
 		System.out.println(fakeDatasource.getPassword());
 		System.out.println(fakeDatasource.getJdbcUrl());
+
+		System.out.println("------ Config prop bean");
+		SfgConfig sfgConfig = ctx.getBean(SfgConfig.class);
+		System.out.println(sfgConfig.getUsername());
+		System.out.println(sfgConfig.getPassword());
+		System.out.println(sfgConfig.getJdbcUrl());
 	}
 }

@@ -3,7 +3,6 @@ spring:
     active:
       - EN
       - cat
-      - prod
 bht:
   username: bountyHunter
   password: bhtPassword
