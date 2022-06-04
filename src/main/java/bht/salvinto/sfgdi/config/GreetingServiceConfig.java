@@ -1,15 +1,29 @@
 package bht.salvinto.sfgdi.config;
 
+import bht.salvinto.sfgdi.datasource.FakeDatasource;
 import bht.salvinto.sfgdi.repositories.EnglishGreetingRepository;
 import bht.salvinto.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import bht.salvinto.sfgdi.services.*;
 import bht.salvinto.springframework.pets.PetService;
 import bht.salvinto.springframework.pets.PetServiceFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    FakeDatasource fakeDatasource(@Value("${bht.username}") String username,
+                                  @Value("${bht.password}") String password,
+                                  @Value("${bht.jdbcUrl}") String jdbcUrl) {
+        FakeDatasource fakeDatasource = new FakeDatasource();
+        fakeDatasource.setUsername(username);
+        fakeDatasource.setPassword(password);
+        fakeDatasource.setJdbcUrl(jdbcUrl);
+        return fakeDatasource;
+    }
 
     @Bean
     PetServiceFactory petServiceFactory() {

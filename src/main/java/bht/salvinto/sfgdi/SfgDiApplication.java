@@ -1,6 +1,7 @@
 package bht.salvinto.sfgdi;
 
 import bht.salvinto.sfgdi.controllers.*;
+import bht.salvinto.sfgdi.datasource.FakeDatasource;
 import bht.salvinto.sfgdi.services.PrototypeBean;
 import bht.salvinto.sfgdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -49,5 +50,11 @@ public class SfgDiApplication {
 		System.out.println(prototypeBean1.getScope());
 		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getScope());
+
+		System.out.println("Data source");
+		FakeDatasource fakeDatasource = ctx.getBean(FakeDatasource.class);
+		System.out.println(fakeDatasource.getUsername());
+		System.out.println(fakeDatasource.getPassword());
+		System.out.println(fakeDatasource.getJdbcUrl());
 	}
 }
