@@ -1,16 +1,19 @@
 package bht.salvinto.sfgdi;
 
 import bht.salvinto.sfgdi.config.SfgConfig;
+import bht.salvinto.sfgdi.config.SfgConstructorConfig;
 import bht.salvinto.sfgdi.controllers.*;
 import bht.salvinto.sfgdi.datasource.FakeDatasource;
 import bht.salvinto.sfgdi.services.PrototypeBean;
 import bht.salvinto.sfgdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 // @ComponentScan({"bht.salvinto.sfgdi", "bht.salvinto.springframework"})
+@EnableConfigurationProperties(SfgConstructorConfig.class)
 @SpringBootApplication
 public class SfgDiApplication {
 	public static void main(String[] args) {
@@ -63,5 +66,11 @@ public class SfgDiApplication {
 		System.out.println(sfgConfig.getUsername());
 		System.out.println(sfgConfig.getPassword());
 		System.out.println(sfgConfig.getJdbcUrl());
+
+		System.out.println("------ Constructor Config prop bean");
+		SfgConstructorConfig sfgConstructorConfig = ctx.getBean(SfgConstructorConfig.class);
+		System.out.println(sfgConstructorConfig.getUsername());
+		System.out.println(sfgConstructorConfig.getPassword());
+		System.out.println(sfgConstructorConfig.getJdbcUrl());
 	}
 }

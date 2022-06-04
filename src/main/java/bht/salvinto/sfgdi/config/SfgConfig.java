@@ -3,7 +3,7 @@ package bht.salvinto.sfgdi.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-@ConfigurationProperties("bht")
+@ConfigurationProperties(prefix="bht")
 @Configuration
 public class SfgConfig {
     private String username;
