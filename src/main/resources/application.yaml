@@ -3,8 +3,16 @@ spring:
     active:
       - EN
       - cat
-      - qa
+      - prod
 bht:
   username: bountyHunter
   password: bhtPassword
   jdbcUrl: bhtUrl
+
+---
+spring:
+  profiles: prod
+bht:
+  username: prodBountyHunter
+  password: prodBhtPassword
+  jdbcUrl: prodBhtUrl
