@@ -41,7 +41,7 @@ public class SfgDiApplication {
 				(ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.getGreeting());
 
-		System.out.println("Bean scope");
+		System.out.println("------ Bean scope");
 		SingletonBean singletonBean1 = ctx.getBean(SingletonBean.class);
 		System.out.println(singletonBean1.getScope());
 		SingletonBean singletonBean2 = ctx.getBean(SingletonBean.class);
@@ -51,7 +51,7 @@ public class SfgDiApplication {
 		PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getScope());
 
-		System.out.println("Data source");
+		System.out.println("------ Fake Data source");
 		FakeDatasource fakeDatasource = ctx.getBean(FakeDatasource.class);
 		System.out.println(fakeDatasource.getUsername());
 		System.out.println(fakeDatasource.getPassword());
